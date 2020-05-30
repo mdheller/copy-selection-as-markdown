@@ -4,16 +4,18 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "run-s build:core build:firefox",
+    "build": "run-s build:core build:firefox build:chromium",
     "build:core": "yarn workspace copy-selection-as-markdown-core build",
     "build:firefox": "yarn workspace copy-selection-as-markdown-firefox build",
+    "build:chromium": "yarn workspace copy-selection-as-markdown-chromium build",
     "test": "run-s test:core",
     "test:core": "yarn workspace copy-selection-as-markdown-core test",
     "generate": "run-s generate:firefox",
     "generate:firefox": "yarn workspace copy-selection-as-markdown-firefox generate",
-    "format": "run-s format:core format:firefox",
+    "format": "run-s format:core format:firefox format:chromium",
     "format:core": "yarn workspace copy-selection-as-markdown-core format",
     "format:firefox": "yarn workspace copy-selection-as-markdown-firefox format",
+    "format:chromium": "yarn workspace copy-selection-as-markdown-chromium format",
     "watch": "run-p watch:core watch:firefox",
     "watch:core": "yarn workspace copy-selection-as-markdown-core watch",
     "watch:firefox": "yarn workspace copy-selection-as-markdown-firefox watch"
