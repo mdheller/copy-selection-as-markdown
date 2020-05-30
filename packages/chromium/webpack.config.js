@@ -3,9 +3,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   mode: "production",
   entry: {
-    copy: "./src/copy.js",
-    "copy-link": "./src/copy-link.js",
-    settings: "./src/settings.js"
+    index: "./src/index.js"
   },
   output: {
     path: __dirname + "/dist",
@@ -26,7 +24,7 @@ module.exports = {
               [
                 "@babel/plugin-transform-runtime",
                 {
-                  corejs: 3,
+                  corejs: 2,
                   helpers: false,
                   regenerator: true,
                   useESModules: false
@@ -40,15 +38,14 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: "src/settings.html"
-          },
-          {
-            from: "../../node_modules/webextension-polyfill/dist/browser-polyfill.min.js"
-          }
-        ]
-      }
-    )
+      patterns: [
+        {
+          from: "manifest.json"
+        },
+        {
+          from: "../core/dist/"
+        }
+      ]
+    })
   ]
 };

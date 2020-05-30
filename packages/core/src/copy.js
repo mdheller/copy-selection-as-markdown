@@ -1,6 +1,7 @@
 import { doCopy, getSelectionAsMarkdown } from "./util";
 
 const RegexEscape = require("regex-escape");
+const browser = require("webextension-polyfill");
 
 async function main() {
   try {
@@ -114,7 +115,7 @@ ${selection.url}
 /* --- end of copy-selection-as-markdown debug information ------------------------------------------------ */
 Open new issue at https://github.com/0x6b/copy-selection-as-markdown/issues/new with information above.
 
-`      );
+`);
     }
     doCopy(text, html);
   } catch (e) {
